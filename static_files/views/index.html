@@ -38,15 +38,12 @@
     }
   })
   .directive("findGold",function(){
-    console.log("what???");
     var x = document.getElementById('gold');
-
     x.innerHTML = "Hello I have this gold:" + gold;
     return {
       restrict: "A",
       template: "find gold",
       compile: function(tElm,tAttrs){
-      // var exp = $parse('fxn()');
       return function (scope,elm){
         elm.bind('click',function(){
           gold += 10;
