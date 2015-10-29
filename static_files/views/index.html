@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script>
+  var gold = 0;
+  var myApp = angular.module("myapp", [])
+    .directive("myGold", function() {
+    return {
+      restrict: "E",
+      templateUrl: "mygold",
+    }
+  })
+
+  .directive("myFarm", function() {
+    return {
+      restrict: "E",
+      templateUrl: "myFarm",
+    }
+  })
+  .directive("myHouse", function() {
+    return {
+      restrict: "E",
+      templateUrl: "myHouse",
+    }
+  })
+  .directive("myCasino", function() {
+    return {
+      restrict: "E",
+      templateUrl: "myCasino",
+    }
+  })
+  .directive("myCave", function() {
+    return {
+      restrict: "E",
+      templateUrl: "myCave",
+    }
+  })
+  .directive("findGold",function(){
+    console.log("what???");
+    var x = document.getElementById('gold');
+
+    x.innerHTML = "Hello I have this gold:" + gold;
+    return {
+      restrict: "A",
+      template: "find gold",
+      compile: function(tElm,tAttrs){
+      // var exp = $parse('fxn()');
+      return function (scope,elm){
+        elm.bind('click',function(){
+          gold += 10;
+          x.innerHTML = "Hello I have this gold:" + gold;
+        });
+      };
+    }
+  }
+});
+
+  </script>
+  <title>Document</title>
+</head>
+<body ng-app = "myapp">
+  <my-gold></my-gold>
+  <my-farm></my-farm>
+  <my-house></my-house>
+  <my-casino></my-casino>
+  <my-cave></my-cave>
+
+
+</body>
+</html>
